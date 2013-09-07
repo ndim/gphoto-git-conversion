@@ -41,8 +41,13 @@ This will create a backup of the SF.net SVN repo at
 and then convert the code from the SVN backup to git repos stored at
 
     git-repos/
-    
+
 and `git push` the git repos to the github user `$GITHUB_USER`.
 
 Subsequent runs of `make` will update the backup, then update the
 git repos in `git-repos/` and push the changes to github.
+
+If you want to save the output of the `make` run, you can start it as
+follows:
+
+    :>nohup.out; nohup make GITHUB_USER=foo & tail --pid $! -f nohup.out
