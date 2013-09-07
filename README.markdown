@@ -15,7 +15,7 @@ lacks support for `--rewrite-root`, so you must get _svn2git_ here:
 
     git clone git://github.com/ndim/svn2git.git
     cd svn2git
-    git checkout feature/rewrite-root
+    git checkout feature/log-window-size
 
 Then you can locally build and install it with
 

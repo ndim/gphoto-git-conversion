@@ -7,6 +7,8 @@ SVN2GIT = svn2git
 
 GITHUB_USER = ndim
 
+LOG_WINDOW_SIZE = 20000
+
 REPO =
 REPO += m4
 REPO += gphoto2
@@ -48,6 +50,7 @@ convert:
 	    cd "$${repo}"; \
 	    $(SVN2GIT) \
 	      --rebase \
+	      --log-window-size "$(LOG_WINDOW_SIZE)" \
 	      --trunk "trunk/$$svnrepo" \
 	      --branches "branches/*/$$svnrepo" \
 	      --tags "tags/*/$$svnrepo" \
@@ -60,6 +63,7 @@ convert:
 	    cd "$${repo}"; \
 	    $(SVN2GIT) \
 	      $(SVNROOT) \
+	      --log-window-size "$(LOG_WINDOW_SIZE)" \
 	      --trunk "trunk/$$svnrepo" \
 	      --branches "branches/*/$$svnrepo" \
 	      --tags "tags/*/$$svnrepo" \
