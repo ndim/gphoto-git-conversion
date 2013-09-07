@@ -1,7 +1,7 @@
 gphoto SVN to git conversion
 ============================
 
-This is a collection of scripts and data to conver the
+This is a collection of scripts and data to convert the
 http://gphoto.org/ project's SVN repos at SF.net to git repositories.
 
 
@@ -10,8 +10,8 @@ Install svn2git
 
 We require _svn2git_ for doing the actual conversion.
 
-However, upstream _svn2git_ at git://github.com/nirvdrum/svn2git.git
-lacks support for --rewrite-root, so you must get _svn2git_ here:
+However, upstream _svn2git_ at `git://github.com/nirvdrum/svn2git.git`
+lacks support for `--rewrite-root`, so you must get _svn2git_ here:
 
     git clone git://github.com/ndim/svn2git.git
     cd svn2git
@@ -38,6 +38,8 @@ This will create a backup of the SF.net SVN repo at
 
     svn-backup/
 
-and then convert the code to git repos stored at
+and then convert the code from the SVN backup to git repos stored at
 
     git-repos/
+
+A later run of `make` will update the backup, and then update the git repos.
