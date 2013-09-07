@@ -79,7 +79,7 @@ convert:
 	      --msg-filter 'sed -f$(PWD)/commit-msg.sed' \
 	      -- --all; \
 	    $(GIT) for-each-ref --format="%(refname)" refs/original/ \
-	      | xargs -n 1 git update-ref -d; \
+	      | xargs -r -n 1 git update-ref -d; \
 	    $(GIT) reflog expire --expire=now --all; \
 	    $(GIT) gc --prune=now; \
 	  fi; \
