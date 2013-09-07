@@ -21,6 +21,8 @@ REPO += bindings/libgphoto2-java
 REPO += bindings/libgphoto2-python
 REPO += bindings/libgphoto2-sharp
 
+NON_ASCII_LOG = $(PWD)/non-ascii.log
+
 AUTHORS = $(PWD)/authors.txt
 PUBLIC_SVN = https://svn.code.sf.net/p/gphoto/code
 PUBLIC_RSYNC = svn.code.sf.net::p/gphoto/code/*
@@ -40,7 +42,8 @@ backup:
 	$(RSYNC) -av "$(PUBLIC_RSYNC)" "$(SVNROOTDIR)"
 
 .PHONY: convert
-convert:
+convert: log-non-ascii
+	rm -f "$(NON_ASCII_LOG)"
 	mkdir -p "$(S2GROOT)"
 	set -ex; \
 	for svnrepo in $(REPO); do \
@@ -82,7 +85,7 @@ convert:
 	    $(GCL) --add remote.origin.push "+refs/tags/*"; \
 	    $(GIT) filter-branch \
 	      --tag-name-filter cat \
-	      --msg-filter 'sed -f$(PWD)/commit-msg.sed' \
+	      --msg-filter '$(PWD)/log-non-ascii $(NON_ASCII_LOG) | sed -f$(PWD)/commit-msg.sed' \
 	      -- --all; \
 	    $(GIT) for-each-ref --format="%(refname)" refs/original/ \
 	      | xargs -r -n 1 git update-ref -d; \
@@ -91,3 +94,8 @@ convert:
 	  fi; \
 	  $(GIT) push -v; \
 	done
+
+CFLAGS += -std=c99
+CFLAGS += -Wextra
+CFLAGS += -Werror
+CFLAGS += -pedantic
