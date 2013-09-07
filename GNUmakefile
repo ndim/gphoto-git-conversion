@@ -47,6 +47,7 @@ convert:
 	  cd "$(S2GROOT)"; \
 	  repo=$$(basename "$$svnrepo"); \
 	  if test -f "$${repo}/.git/info/exclude"; then \
+	    : "Update git repo from SVN"; \
 	    cd "$${repo}"; \
 	    $(SVN2GIT) \
 	      --rebase \
@@ -59,6 +60,7 @@ convert:
 	      --verbose \
 	      --authors "$(AUTHORS)"; \
 	  else \
+	    : "Create new git repo from SVN"; \
 	    mkdir "$${repo}"; \
 	    cd "$${repo}"; \
 	    $(SVN2GIT) \
