@@ -32,7 +32,7 @@ Usage
 
 Run
 
-    make
+    make GITHUB_USER=foo
 
 This will create a backup of the SF.net SVN repo at
 
@@ -41,5 +41,8 @@ This will create a backup of the SF.net SVN repo at
 and then convert the code from the SVN backup to git repos stored at
 
     git-repos/
+    
+and `git push` the git repos to the github user `$GITHUB_USER`.
 
-A later run of `make` will update the backup, and then update the git repos.
+Subsequent runs of `make` will update the backup, then update the
+git repos in `git-repos/` and push the changes to github.
