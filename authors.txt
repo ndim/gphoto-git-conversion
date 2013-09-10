@@ -36,6 +36,7 @@ mrensing=Michael Rensing <mrensing@users.sourceforge.net>
 Mutant_Fruit=Mutant Fruit <Mutant_Fruit@users.sourceforge.net>
 nathanstenzel=Nathan Stenzel <nathanstenzel@users.sourceforge.net>
 ofauchon=Fauchon <ofauchon@users.sourceforge.net>
+oka = Ole Aamot <oka@oka.no>
 ole=Ole Arndt <ole@users.sourceforge.net>
 patmans=Patrick Mansfield <patmans@users.sourceforge.net>
 pbk2513=Peter Kajberg <pbk2513@users.sourceforge.net>
