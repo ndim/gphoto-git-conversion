@@ -50,7 +50,7 @@ int main(int argc, const char *argv[])
 	fprintf(stderr, "log-non-ascii: Error %d reading from STDIN.\n", e);
 	return 13;
       } else {
-	/* no error, no eof, try reading again */
+	/* no error, no eof, try reading more data */
       }
     }
   }
