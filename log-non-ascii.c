@@ -30,6 +30,7 @@ int main(int argc, const char *argv[])
   static char buf[65536];
   size_t si = 0;
   while (1) {
+    assert(sizeof(buf) >  si);
     const size_t read_size = fread(&buf[si], 1, sizeof(buf) - si, stdin);
     if (read_size > 0) {
       /* write received data to STDOUT */
