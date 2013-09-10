@@ -58,4 +58,4 @@ uid34756=uid34756 <uid34756@users.sourceforge.net>
 uid36478=uid36478 <uid36478@users.sourceforge.net>
 uid64678=uid64678 <uid64678@users.sourceforge.net>
 womprat=David Hogue <womprat@users.sourceforge.net>
-(no author)=cvs2svn conversion artefacts <cvs2svn-artefacts-noreply@gphoto.org>
+(no author) = cvs2svn conversion <cvs2svn-artefacts-noreply@gphoto.org>
