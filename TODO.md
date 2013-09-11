@@ -1,5 +1,8 @@
-TODO items for migrating gphoto.org code from SF.net/SVN to github/git
-======================================================================
+TODOs
+=====
+
+The things we have to do for migrating the gphoto.org source code
+from subversion repos on sourceforge.net to git repos at github.com.
 
 Pull requests welcome.
 
@@ -38,6 +41,6 @@ After final migration to git repos
 Some time, done easiest with git instead of svn
 -----------------------------------------------
 
-  * Update Lutz'' mail addr in AUTHORS and MAINTAINERS files
+  * Update Lutz´ mail addr in AUTHORS and MAINTAINERS files
 
   * Move all non-po files to a single charset: utf-8.
