@@ -42,7 +42,7 @@ backup:
 	$(RSYNC) -av "$(PUBLIC_RSYNC)" "$(SVNROOTDIR)"
 
 .PHONY: convert
-convert: log-non-ascii
+convert: grep-non-ascii log-non-ascii
 	rm -f "$(NON_ASCII_LOG)"
 	mkdir -p "$(S2GROOT)"
 	set -ex; \
@@ -94,8 +94,19 @@ convert: log-non-ascii
 	  fi; \
 	  $(GIT) push -v; \
 	done
+	$(MAKE) unconverted.log
 
 CFLAGS += -std=c99
 CFLAGS += -Wextra
 CFLAGS += -Werror
 CFLAGS += -pedantic
+
+grep-non-ascii: grep-non-ascii.c
+
+log-non-ascii: log-non-ascii.c
+
+commit-msg-del.sed: commit-msg.sed
+	sed -E 's,[^/]+/g$,/g,' < commit-msg.sed > commit-msg-del.sed
+
+unconverted.log: non-ascii.log commit-msg-del.sed grep-non-ascii
+	sed -f commit-msg-del.sed < non-ascii.log | ./grep-non-ascii > unconverted.log

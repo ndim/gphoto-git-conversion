@@ -1,6 +1,9 @@
+/commit-msg-del.sed
+/grep-non-ascii
 /log-non-ascii
 /nohup.out
 /non-ascii.log
+/unconverted.log
 /git-repos/
 /svn-backup/
 /svn2git/
