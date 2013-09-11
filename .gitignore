@@ -1,5 +1,6 @@
 /log-non-ascii
 /nohup.out
+/non-ascii.log
 /git-repos/
 /svn-backup/
 /svn2git/
