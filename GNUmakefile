@@ -15,11 +15,11 @@ LOG_WINDOW_SIZE = 20000
 export LOG_WINDOW_SIZE
 
 # As libgphoto is the conversion taking the longest time, we put it
-# second, with the shortest time m4 on top.
+# second, with the shortest time repo on top.
 #
 # In case of CONCURRENT_TASKS = 1:
-#    We get a quick run through all conversion steps for 'm4',
-#    and the total conversion time is not affected.
+#    We get a quick exercise of the whole conversion code for the
+#    short repo, and the total conversion time is not affected.
 #
 # In case of CONCURRENT_TASKS > 1:
 #    We get a quick run through all conversion steps for 'm4',
@@ -28,15 +28,25 @@ export LOG_WINDOW_SIZE
 #    Total conversion time is not affected by the sequence of
 #    repos.
 REPO =
-REPO += m4
-REPO += libgphoto2
-REPO += gphoto2
-REPO += gphotofs
-REPO += gtkam
+# ~10min
 REPO += gphoto2-manual
+# ~250min++
+REPO += libgphoto2
+# ~130min
+REPO += gphoto2
+# ~45min
+REPO += gtkam
+# ~25min
+REPO += m4
+# ~25min
+REPO += gphotofs
+# ~15min
 REPO += website
+# ~10min
 REPO += bindings/libgphoto2-java
+# ~10min
 REPO += bindings/libgphoto2-python
+# ~10min
 REPO += bindings/libgphoto2-sharp
 
 TOP_DIR = $(PWD)
