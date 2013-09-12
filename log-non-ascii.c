@@ -26,15 +26,19 @@ int main(int argc, const char *argv[])
   assert(argc == 2);
   const char *logfile_name = argv[1];
 
+  /* Set stdout to unbuffered, so we push out our data in a single
+   * fwrite(3) go.  This does not guarantee proper locking, but helps
+   * reduce the probability of interleaved data from multiple
+   * log-non-ascii processes in a single output file. */
+  assert(0 == setvbuf(stdout, NULL, _IONBF, 0));
+
   /* read all STDIN data into buf */
-  static char buf[65536];
+  static char buf[4*1024*1024];
   size_t si = 0;
   while (1) {
     assert(sizeof(buf) >  si);
     const size_t read_size = fread(&buf[si], 1, sizeof(buf) - si, stdin);
     if (read_size > 0) {
-      /* write received data to STDOUT */
-      fwrite(&buf[si], 1, read_size, stdout);
       /* Our buffer must always be larger than the message */
       assert(si + read_size < sizeof(buf));
       /* advance index */
@@ -54,6 +58,10 @@ int main(int argc, const char *argv[])
       }
     }
   }
+  /* buf[0..si-1] now contains the complete message */
+
+  /* write the complete message to stdout */
+  fwrite(buf, 1, si, stdout);
 
   /* examine buf for non-ascii characters, log buf if some found */
   if (has_non_ascii(buf, si)) {

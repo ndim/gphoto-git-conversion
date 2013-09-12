@@ -50,4 +50,5 @@ git repos in `git-repos/` and push the changes to github.
 If you want to save the output of the `make` run, you can start it as
 follows:
 
-    :>nohup.out; nohup /usr/bin/time -v make GITHUB_USER=foo & tail --pid $! -f nohup.out
+    nohup /usr/bin/time -v make GITHUB_USER=foo convert > all-conversions.log &
+    tail --pid $! -f all-conversions.log
