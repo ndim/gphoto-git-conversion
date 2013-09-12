@@ -21,3 +21,9 @@ s/Michel D�nzer/Michel Dänzer/g
 s/Aur�lien Croc/Aurélien Croc/g
 s/Stefan H�hne/Stefan Höhne/g
 s/Norbert M�ndjen/Norbert Möndjen/g
+s/courtesy Matti P�ll�\./courtesy Matti Pöllä\./g
+s/error handling change from L�tz/error handling change from Lutz/g
+s/(AP�C) <programming@ap2c.com>/(AP²C) <programming@ap2c.com>/g
+s/removed %§"\$%/removed %§"\$%/g
+s/french from Jérôme Fenal/french from Jérôme Fenal/g
+s/� configure.in: Version 0.1.9/* configure.in: Version 0.1.9/g
