@@ -108,7 +108,7 @@ grep-non-ascii: grep-non-ascii.c
 log-non-ascii: log-non-ascii.c
 
 commit-msg-del.sed: commit-msg.sed
-	sed -E 's,[^/]+/g$,/g,' < commit-msg.sed > commit-msg-del.sed
+	sed -E 's,[^/]+/g$$,/g,' < commit-msg.sed > commit-msg-del.sed
 
 $(TOP_DIR)/unconverted.log: $(TOP_DIR)/non-ascii.log commit-msg-del.sed grep-non-ascii
 	sed -f commit-msg-del.sed < "$<" | ./grep-non-ascii > "$@"
