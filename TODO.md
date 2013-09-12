@@ -16,6 +16,10 @@ Before final migration to git repos
   * Find and list existing documentation for how to get the sourcecode
     and how to build it.
 
+  * Add a git tag to all generated git repos at their important branch
+    heads clearly marking this as the point where the automatic SVN
+    conversion stopped.
+
 
 Before or after final migration to git repos
 --------------------------------------------
@@ -26,6 +30,10 @@ two of something approaching a downtime.
   * Make `git clone` and building the code work.
 
   * Document how to get the source code and how to build it.
+  
+  * Add a git tag to all generated git repos at their important branch
+    heads clearly marking this at the point where the builds should
+    work from git clones.
 
 
 After final migration to git repos
