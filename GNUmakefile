@@ -30,7 +30,7 @@ export LOG_WINDOW_SIZE
 REPO =
 # ~10min
 REPO += gphoto2-manual
-# ~250min++
+# ~330min
 REPO += libgphoto2
 # ~130min
 REPO += gphoto2
