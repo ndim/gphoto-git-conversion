@@ -52,3 +52,10 @@ follows:
 
     nohup /usr/bin/time -v make GITHUB_USER=foo convert > all-conversions.log &
     tail --pid $! -f all-conversions.log
+    grep -E '(Command being|Elapsed) ' all-conversions.log | grep -E '(\S+"$| ([0-9]+:)+[0-9]+)'
+
+
+Other things
+------------
+
+Attentively examine the results.
