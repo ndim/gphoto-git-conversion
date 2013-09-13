@@ -53,6 +53,7 @@ follows:
     nohup /usr/bin/time -v make GITHUB_USER=foo convert > all-conversions.log &
     tail --pid $! -f all-conversions.log
     grep -E '(Command being|Elapsed) ' all-conversions.log | grep -E '(\S+"$| ([0-9]+:)+[0-9]+)'
+    ./grep-non-ascii < git-repos/non-ascii.log | sed -f commit-msg-del.sed  | ./grep-non-ascii
 
 
 Other things
