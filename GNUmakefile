@@ -52,9 +52,6 @@ REPO += bindings/libgphoto2-sharp
 TOP_DIR = $(PWD)
 export TOP_DIR
 
-NON_ASCII_LOG = $(TOP_DIR)/non-ascii.log
-export NON_ASCII_LOG
-
 AUTHORS = $(PWD)/authors.txt
 export AUTHORS
 
@@ -68,6 +65,9 @@ SVNROOT = file://$(SVNROOTDIR)
 export SVNROOT
 S2GROOT = $(TOP_DIR)/git-repos
 export S2GROOT
+
+NON_ASCII_LOG = $(S2GROOT)/non-ascii.log
+export NON_ASCII_LOG
 
 # CONCURRENT_TASKS = 1
 CONCURRENT_TASKS = 3
@@ -96,7 +96,7 @@ convert: grep-non-ascii log-non-ascii commit-msg-del.sed
 	  cd "$${repo}"; \
 	  $(GIT) push -v; \
 	done
-	$(MAKE) "$(TOP_DIR)/unconverted.log"
+	$(MAKE) "$(S2GROOT)/unconverted.log"
 
 CFLAGS += -std=c99
 CFLAGS += -Wextra
@@ -110,5 +110,5 @@ log-non-ascii: log-non-ascii.c
 commit-msg-del.sed: commit-msg.sed
 	sed -E 's,[^/]+/g$$,/g,' < commit-msg.sed > commit-msg-del.sed
 
-$(TOP_DIR)/unconverted.log: $(TOP_DIR)/non-ascii.log commit-msg-del.sed grep-non-ascii
+$(S2GROOT)/unconverted.log: $(S2GROOT)/non-ascii.log commit-msg-del.sed grep-non-ascii
 	sed -f commit-msg-del.sed < "$<" | ./grep-non-ascii > "$@"
