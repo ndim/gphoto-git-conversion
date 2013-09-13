@@ -30,7 +30,7 @@ two of something approaching a downtime.
   * Make `git clone` and building the code work.
 
   * Document how to get the source code and how to build it.
-  
+
   * Add a git tag to all generated git repos at their important branch
     heads clearly marking this at the point where the builds should
     work from git clones.
