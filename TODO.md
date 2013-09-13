@@ -45,6 +45,10 @@ After final migration to git repos
 
   * Find and document a way to compose and publish code releases.
 
+  * Get hold of release tarballs and use `git bisect` to find the git
+    commits they were created from. Then re-create the appropriate
+    tags and github releases.
+
 
 Some time, done easiest with git instead of svn
 -----------------------------------------------
