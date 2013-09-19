@@ -26,7 +26,7 @@ exec >"conversion.$repo.log"
 set -x
 
 if test -f "${repo}/.git/info/exclude"; then
-    echo "Update git repo '$repo' from SVN '$$svnrepo'"
+    echo "Update git repo '$repo' from SVN '$svnrepo'"
     cd "${repo}"
     ${SVN2GIT} \
 	--rebase \
@@ -39,7 +39,7 @@ if test -f "${repo}/.git/info/exclude"; then
 	--verbose \
 	--authors "${AUTHORS}"
 else
-    echo "Create new git repo '$repo' from SVN '$$svnrepo'"
+    echo "Create new git repo '$repo' from SVN '$svnrepo'"
     mkdir "${repo}"
     cd "${repo}"
     ${SVN2GIT} \
